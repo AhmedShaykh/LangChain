@@ -6,9 +6,9 @@ contract HelloWorld {
 
     string greet = "Hello World!";
 
-    uint num = 456; // UInt Not Support Negative Value
+    uint num = 456; // Unsigned Integer Not Support Negative Value
 
-    int num2 = -456; // But Int Support Negative Value
+    int num2 = -456; // But Integer Support Both Values
 
     bool isNumber = true;
 
