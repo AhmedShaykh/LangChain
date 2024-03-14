@@ -14,7 +14,7 @@ contract MyContract {
 
     // =============== Unsigned Integer & Integer Values Range =============== //
 
-    uint myUintval = 10000; // Default Value Range 256 Set In Integer & Unsigned Integer
+    uint256 myUintval = 10000; // Default Value Range 256 Set In Integer & Unsigned Integer
     int256 myIntval = -10000; // Values Range Assign Between (8 to 256) Memory Limit
 
     // =============== 2 ** Val = TotalVal - 1 => StoreVal =============== //
@@ -27,15 +27,27 @@ contract MyContract {
 
     // =============== Check Maximum & Minimum Values =============== //
 
-    int public val = type(int256).max;
-    int public val2 = type(int256).min;
+    int256 public val = type(int256).max;
+    int256 public val2 = type(int256).min;
 
-    uint public val3 = type(uint256).max;
-    uint public val4 = type(uint8).max - 5;
+    uint256 public val3 = type(uint256).max;
+    uint256 public val4 = type(uint8).max - 5;
 
     // =============== Types Convert =============== //
 
     uint16 public myVal = 65535;
     uint8 public myVal2 = uint8(myVal);
+
+    // =============== Arrays =============== //
+
+    uint8[] public myArrayVal = [255, 255];
+
+    string[] public myArrayVal2 = ["Ahmed", "Shaikh"];
+    string[3] private myArrayVal3 = ["Ahmed", "Saleem", "Shaikh"]; // Give Array Fix Size
+    string[3] public MyArray = myArrayVal3;
     
+    int8[] public MyArray2 = [-123, 123, 72]; // Integer Array Compulsory 1 Value Should Be -ve & From The Start
+
+    uint public lengthOfArray = myArrayVal3.length;
+
 }
