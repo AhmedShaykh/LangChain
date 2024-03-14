@@ -51,3 +51,26 @@ contract MyContract {
     uint public lengthOfArray = myArrayVal3.length;
 
 }
+
+contract MyFunctions {
+
+    uint16 val = 456;
+
+    function myFunc() public view returns(uint16) {
+        return val;
+    }
+
+    function myFunc2() public pure returns(uint16) {
+        return 786;
+    }
+
+    function myFunc3() public pure returns(uint16) {
+        uint16 val2 = 456;
+        return val2;
+    }
+
+    function myArgFuc(uint value) public pure returns(uint) {
+        return value;
+    }
+
+}
