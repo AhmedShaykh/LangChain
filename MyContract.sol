@@ -3,7 +3,6 @@
 pragma solidity ^0.8.24;
 
 contract MyContract {
-
     // =============== Data Types & Visibility =============== //
 
     string greet = "My First Contract"; // Default Variable Visibility Is Private
@@ -45,32 +44,34 @@ contract MyContract {
     string[] public myArrayVal2 = ["Ahmed", "Shaikh"];
     string[3] private myArrayVal3 = ["Ahmed", "Saleem", "Shaikh"]; // Give Array Fix Size
     string[3] public MyArray = myArrayVal3;
-    
+
     int8[] public MyArray2 = [-123, 123, 72]; // Integer Array Compulsory 1 Value Should Be -ve & From The Start
 
     uint public lengthOfArray = myArrayVal3.length;
-
 }
 
 contract MyFunctions {
+    // =============== Function State Mutability =============== //
 
-    uint16 val = 456;
-
-    function myFunc() public view returns(uint16) {
-        return val;
+    function myFunc() public pure returns (uint16) {
+        return 786; // State Variable Is Not Access & Modification In Pure Function
     }
 
-    function myFunc2() public pure returns(uint16) {
-        return 786;
+    uint16 val = 456; // State Variable
+
+    function myFunc2() public view returns (uint16) {
+        return val; // State Variable Is Only GET (Read) In View Function
     }
 
-    function myFunc3() public pure returns(uint16) {
-        uint16 val2 = 456;
-        return val2;
+    function myFunc3() public pure returns (uint8) {
+        return 4 + 46;
     }
 
-    function myArgFuc(uint value) public pure returns(uint) {
-        return value;
+    function myFunc4() public view returns (uint16) {
+        return val + 44;
     }
 
+    function myFunc5(uint8 value, uint8 value2) public pure returns (uint16) {
+        return value + value2;
+    }
 }
