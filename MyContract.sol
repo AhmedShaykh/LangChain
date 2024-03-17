@@ -1,5 +1,4 @@
 // SPDX-License-Identifier: MIT
-
 pragma solidity ^0.8.24;
 
 contract MyContract {
@@ -48,30 +47,4 @@ contract MyContract {
     int8[] public MyArray2 = [-123, 123, 72]; // Integer Array Compulsory 1 Value Should Be -ve & From The Start
 
     uint public lengthOfArray = myArrayVal3.length;
-}
-
-contract MyFunctions {
-    // =============== Function State Mutability =============== //
-
-    function myFunc() public pure returns (uint16) {
-        return 786; // State Variable Is Not Access & Modification In Pure Function
-    }
-
-    uint16 val = 456; // State Variable
-
-    function myFunc2() public view returns (uint16) {
-        return val; // State Variable Is Only GET (Read) In View Function
-    }
-
-    function myFunc3() public pure returns (uint8) {
-        return 4 + 46;
-    }
-
-    function myFunc4() public view returns (uint16) {
-        return val + 44;
-    }
-
-    function myFunc5(uint8 value, uint8 value2) public pure returns (uint16) {
-        return value + value2;
-    }
 }
