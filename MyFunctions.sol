@@ -28,41 +28,48 @@ contract MyFunctions {
 
     // =============== Function Visibility =============== //
 
-    function myFuncPublic(uint value, uint value2) public pure returns (uint) {
+    function myFuncPublic(uint256 value, uint256 value2)
+        public
+        pure
+        returns (uint256)
+    {
         // Public Function Call Externally
         return value + value2; // // Public Function Call Externally, With In Contract Every Function & Inherited Contract Function With Externally
     }
 
-    function myFuncInternal(
-        uint value,
-        uint value2
-    ) internal pure returns (uint) {
+    function myFuncInternal(uint256 value, uint256 value2)
+        internal
+        pure
+        returns (uint256)
+    {
         // Internal
         return value + value2;
     }
 
-    function myFuncInt() public pure returns (uint) {
+    function myFuncInt() public pure returns (uint256) {
         // Internal Function Call With In Contract Function & Inherited Contract Function
         return myFuncInternal(10, 12);
     }
 
-    function myFuncPrivate(
-        uint value,
-        uint value2
-    ) private pure returns (uint) {
+    function myFuncPrivate(uint256 value, uint256 value2)
+        private
+        pure
+        returns (uint256)
+    {
         // Private
         return value + value2;
     }
 
-    function myFuncPrivate2() public pure returns (uint) {
+    function myFuncPrivate2() public pure returns (uint256) {
         // Private Function Only Call With In Contract
         return myFuncPrivate(23, 75);
     }
 
-    function myFuncExternal(
-        uint value,
-        uint value2
-    ) external pure returns (uint) {
+    function myFuncExternal(uint256 value, uint256 value2)
+        external
+        pure
+        returns (uint256)
+    {
         // External Function Only Call Externally (Direct Own Function Access)
         return value + value2; // Not With In Any Contract Function & Inherited Contract Function
     }
@@ -70,11 +77,21 @@ contract MyFunctions {
 
 contract FunctionVisible is MyFunctions {
     // Inherited
-    function callFuncPublic() public pure returns (uint) {
+    function callFuncPublic() public pure returns (uint256) {
         return myFuncPublic(45, 55);
     }
 
-    function callFuncInternal() public pure returns (uint) {
+    function callFuncInternal() public pure returns (uint256) {
         return myFuncInternal(45, 55);
+    }
+
+    // =============== Function String Parameter =============== //
+
+    function stringFuncMem(string memory data)
+        public
+        pure
+        returns (string memory)
+    {
+        return data;
     }
 }
