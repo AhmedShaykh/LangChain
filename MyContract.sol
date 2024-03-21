@@ -47,4 +47,21 @@ contract MyContract {
     int8[] public MyArray2 = [-123, 123, 72]; // Integer Array Compulsory 1 Value Should Be -ve & From The Start
 
     uint public lengthOfArray = myArrayVal3.length;
+
+    // =============== State & Local Variable =============== //
+
+    uint public age; // State Variable Is Create In Contract Level & Its Value Is Permanent Stored
+
+    // age = 23; // Default Value Not Update To This Method Like Others Languages
+
+    constructor() {
+        age = 23; // Default Value Update In Contract With Using Constructor & Function
+    }
+
+    function local() public pure returns (uint) {
+        uint num = 24; // Local Variable Is Only Create In Function & Its Value Is Stored In Stack
+        return num;
+    }
+
+    // Local Variable Is No Gas & State Variable Is Costly Gas Because Store Permanent In Contract
 }
