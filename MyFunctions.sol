@@ -2,6 +2,7 @@
 pragma solidity ^0.8.24;
 
 contract MyFunctions {
+
     // =============== Function State Mutability =============== //
 
     function myFunc() public pure returns (uint16) {
@@ -73,10 +74,11 @@ contract MyFunctions {
         // External Function Only Call Externally (Direct Own Function Access)
         return value + value2; // Not With In Any Contract Function & Inherited Contract Function
     }
+
 }
 
-contract FunctionVisible is MyFunctions {
-    // Inherited
+contract FunctionVisible is MyFunctions { // Inherited
+
     function callFuncPublic() public pure returns (uint256) {
         return myFuncPublic(45, 55);
     }
@@ -85,13 +87,6 @@ contract FunctionVisible is MyFunctions {
         return myFuncInternal(45, 55);
     }
 
-    // =============== Function String Parameter =============== //
+    // =============== Function Data Location =============== //
 
-    function stringFuncMem(string memory data)
-        public
-        pure
-        returns (string memory)
-    {
-        return data;
-    }
 }
