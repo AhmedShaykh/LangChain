@@ -2,6 +2,7 @@
 pragma solidity ^0.8.24;
 
 contract MyContract {
+
     // =============== Data Types & Visibility =============== //
 
     string greet = "My First Contract"; // Default Variable Visibility Is Private
@@ -36,7 +37,23 @@ contract MyContract {
     uint16 public myVal = 65535;
     uint8 public myVal2 = uint8(myVal);
 
-    // =============== Arrays =============== //
+    // =============== State & Local Variable =============== //
+
+    uint public age; // State Variable Is Create In Contract Level & Its Value Is Permanent Stored
+    // age = 23; // Default Value Not Update To This Method Like Others Languages
+
+    constructor() {
+        age = 23; // Default Value Update In Contract With Using Constructor & Function
+    }
+
+    function local() pure public returns(uint) {
+        uint num = 24; // Local Variable Is Only Create In Function & Its Value Is Stored In Stack
+        return num; 
+    }
+
+    // Local Variable Is No Gas & State Variable Is Costly Gas Because Store Permanent In Contract
+
+    // =============== Array =============== //
 
     uint8[] public myArrayVal = [255, 255];
 
@@ -48,20 +65,20 @@ contract MyContract {
 
     uint public lengthOfArray = myArrayVal3.length;
 
-    // =============== State & Local Variable =============== //
+    // =============== Dynamic Array =============== //
 
-    uint public age; // State Variable Is Create In Contract Level & Its Value Is Permanent Stored
+    uint[] public arr;
 
-    // age = 23; // Default Value Not Update To This Method Like Others Languages
-
-    constructor() {
-        age = 23; // Default Value Update In Contract With Using Constructor & Function
+    function pushElement(uint item) public {
+        arr.push(item);
     }
 
-    function local() public pure returns (uint) {
-        uint num = 24; // Local Variable Is Only Create In Function & Its Value Is Stored In Stack
-        return num;
+    function len() public view returns(uint) {
+        return arr.length;
     }
 
-    // Local Variable Is No Gas & State Variable Is Costly Gas Because Store Permanent In Contract
+    function popElement() public {
+        arr.pop();
+    }
+
 }
