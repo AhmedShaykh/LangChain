@@ -26,4 +26,59 @@ contract MyMapping {
 
     // =============== Global Variables =============== //
 
+    function myAddress() public view returns(address) {
+        return msg.sender; // Return Current Selected Account Address
+    }
+
+    struct User {
+        string name;
+        uint number;
+    }
+
+    mapping(address => User) public userDetails;
+
+    function register(string memory _name, uint _number) public {
+        userDetails[msg.sender] = User({
+            name: _name, 
+            number: _number
+        }); // No Need Address Parameter Required
+    }
+
+    struct UserData {
+        string name;
+        uint number;
+    }
+
+    mapping(address => UserData) private userDetailsData;
+
+    function myRegister(string memory _name, uint _number) public {
+        userDetailsData[msg.sender] = UserData(_name, _number);
+    }
+
+    function getYourDetails() public view returns(UserData memory) {
+        return userDetailsData[msg.sender]; // Global Variable Direct Fetch Account Address
+    }
+
+    function getUserBalance() public view returns(uint256) {
+        return msg.sender.balance; // Get Balance
+    }
+
+    function myBalance() public view returns(uint256) {
+        address myAddressBal = 0xb3590E61A1BB15F342d8148d2870d894c4C1FBCF;
+        return myAddressBal.balance; // Get My Metamask Balance
+    }
+
+    function myAddressBalance(address _address) public view returns(uint256) {
+        return _address.balance;
+    }
+
+    function globalVar() public view returns(uint, uint, address, uint) {
+        return(
+            block.number, 
+            block.timestamp, 
+            msg.sender,
+            block.chainid
+        );
+    }
+    
 }
