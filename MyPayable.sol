@@ -35,17 +35,30 @@ contract MyPay {
 
     // Constant Are Not Apply In Arrays, Mappings & Struct Types
 
-    address immutable public owner;
+    address immutable public owner; // Immutable Value Update In One Time
 
     address public ownerShip;
 
-    constructor() {
-        owner = msg.sender;
+    address immutable public setOwner;
+
+    constructor(address _ownerAddress) {
+        owner = msg.sender; // Immutable Value Only Update With In Constructor
         ownerShip = msg.sender;
+        setOwner = _ownerAddress; // Immutable Value Assigned In Parameter Value
+    }
+
+    function getOwner() public view returns(address) {
+        return owner;
     }
 
     function transferOwnerShip(address _address) public {
-        ownerShip = _address;
+        if(msg.sender == ownerShip) { // Check It's Owner To Transfer OwnerShip
+            ownerShip = _address;
+        }
+    }
+
+    function getSetOwner() public view returns(address) {
+        return setOwner;
     }
 
 }
