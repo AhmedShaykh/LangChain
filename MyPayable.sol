@@ -25,4 +25,27 @@ contract MyPay {
 
     // No Need Amount Value Pass In Parameter
 
+    // =============== Constant, Immutable & Constructor =============== //
+
+    address public constant myAdd = 0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db; // Constant Value Never Update
+
+    function getConstant() public pure returns(address) {
+        return myAdd; // Constant Value Get In Function But Not Update
+    }
+
+    // Constant Are Not Apply In Arrays, Mappings & Struct Types
+
+    address immutable public owner;
+
+    address public ownerShip;
+
+    constructor() {
+        owner = msg.sender;
+        ownerShip = msg.sender;
+    }
+
+    function transferOwnerShip(address _address) public {
+        ownerShip = _address;
+    }
+
 }
