@@ -62,3 +62,17 @@ contract MyPay {
     }
 
 }
+
+contract EthSend {
+
+    address public owner;
+
+    constructor() payable { // Constructor Require Ethers To Deploy 
+        owner = msg.sender;
+    }
+
+    function getBalanceOfContract() public view returns(uint) {
+        return address(this).balance;
+    }    
+
+}
