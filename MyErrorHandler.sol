@@ -3,7 +3,7 @@ pragma solidity ^0.8.24;
 
 contract MyErrorHandler {
 
-    // =============== Revert Method =============== //
+    // =============== Revert & Require Method =============== //
 
     address public ownerShip;
 
@@ -27,8 +27,6 @@ contract MyErrorHandler {
 
     // The Gas Fee is Negligible In Revert (Function Is Not Work Or Logic Is Not Update)
 
-    // =============== Require Method =============== //
-
     function sendOwnerShip(address _address) public {
         count++;
         require(msg.sender == owner, "Invalid Owner"); // The Value Is Not Correct Will Revert The Logic Automatically 
@@ -36,5 +34,32 @@ contract MyErrorHandler {
     }
 
     // Require Check Value Is Correct Implement To Next Logic Otherwise Value Is Reverted (No Need Given Revert In Method)
+
+    // =============== Enum =============== //
+
+    enum user {
+        allowed,
+        notAllowed,
+        hold
+    }
+
+    user public u1 = user.allowed;
+
+    user public u2 = user.hold;
+
+    uint public lottery = 1000;
+
+    function lotteryOwner() public {
+        if(u1 == user.allowed) {
+            lottery = 0;
+        } 
+        else if(u1 != user.allowed) {
+            lottery = 1000;
+        }
+    }
+
+    function changelotteryOwner() public {
+        u1 = user.notAllowed;
+    }
 
 }
