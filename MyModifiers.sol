@@ -41,10 +41,26 @@ contract MyModifiers {
         priceOfCoin = newPrice;
     }
 
+    // Add Multiples Modifiers In Function
+
     function updateDiscount(bool value) isOwner() public {
         isDiscount = value;
     }
 
-    // Add Multiples Modifiers In Function
+}
+
+// =============== Inheritance =============== //
+
+contract MyInherited is MyModifiers {
+
+    string private ownerName = "Ahmed";
+
+    function setOwnerName(string memory _name) isOwner() public {
+        ownerName = _name;
+    }
+
+    function getOwnerName() public view returns(string memory) {
+        return ownerName;
+    }
 
 }
