@@ -1,9 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-contract MyEventsInt {
-
-    // =============== Events =============== //
+contract MyEvents {
 
     string public message = "Ramadan Mubarak";
 
@@ -13,15 +11,31 @@ contract MyEventsInt {
 
     function updatedMessage(string memory _message) public {
         message = _message;
-        emit MessageUpdated(msg.sender, _message);
+        emit MessageUpdated(msg.sender, _message); // Message (Help To Get In Front-End)
     }
 
-    event balance(address indexed _from, address indexed _to, string mess);
+    // Every Logic Perform Successfully In Function Then Emit Send The Message
 
-    function transferAmount(address payable _to, string memory mess) public {
-        emit balance(msg.sender, _to, mess);
+    event balance(address indexed _from, address indexed _to, string _message);
+
+    function transferAmount(address payable _to, string memory _message) public {
+        emit balance(msg.sender, _to, _message);
     }
 
     // Only Three Indexed Parameters Put In Event Variables
+
+    event depositMessage(string _message);
+
+    event withdrawMessage(string _message);
+
+    function deposit() external payable {
+        emit depositMessage("Deposit Successful");
+    }
+
+    function withdraw(uint _amount) external payable {
+        _amount = _amount * 1 ether;
+        payable(msg.sender).transfer(_amount);
+        emit withdrawMessage("Withdraw Successful");
+    }
 
 }
