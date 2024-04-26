@@ -38,4 +38,25 @@ contract MyEvents {
         emit withdrawMessage("Withdraw Successful");
     }
 
+    // =============== Ternary Operator =============== //
+
+    function boo(bool x) public pure returns(string memory) {
+        string memory mess;
+        mess = x == false ? "Continue Transaction" : "Stop Transaction";
+        return mess;
+    }
+
+    // =============== Continue & Break =============== //
+
+   function loop() public pure returns(uint) {
+        uint count = 0;
+        for(uint i = 0; i < 10; i = i + 2) {
+            if(i == 6) {
+                break;
+            }
+            count++;
+        }
+        return count;
+    }
+    
 }
