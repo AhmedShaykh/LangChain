@@ -11,8 +11,11 @@ contract MyModifiers {
 
     bool public isPause = false;
 
-    constructor() {
+    uint256 internal number;
+
+    constructor(uint256 _num) {
         owner = msg.sender;
+        number = _num;
     }
 
     modifier isOwner() {
@@ -47,6 +50,10 @@ contract MyModifiers {
         isDiscount = value;
     }
 
+    function myNumber() public view returns(uint256) {
+        return number;
+    }
+
 }
 
 // =============== Inheritance =============== //
@@ -54,6 +61,8 @@ contract MyModifiers {
 contract MyInherited is MyModifiers {
 
     string private ownerName = "Ahmed";
+
+    constructor(uint256 _diffNum) MyModifiers(_diffNum) {}
 
     function setOwnerName(string memory _name) isOwner() public {
         ownerName = _name;
