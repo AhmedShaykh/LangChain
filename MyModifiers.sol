@@ -50,19 +50,25 @@ contract MyModifiers {
         isDiscount = value;
     }
 
-    function myNumber() public view returns(uint256) {
+    function myNumber() public view returns(uint256) { // Inheritance
         return number;
+    }
+
+    function getName() public pure returns(string memory) {
+        return "Ahmed Saleem Shaikh";
     }
 
 }
 
-// =============== Inheritance =============== //
-
 contract MyInherited is MyModifiers {
+
+    // =============== Inheritance =============== //
 
     string private ownerName = "Ahmed";
 
     constructor(uint256 _diffNum) MyModifiers(_diffNum) {}
+
+    // In Parent Contract Constructor Pass In Parameters So Inherited Contract Must Be Constructor Pass In Parameters
 
     function setOwnerName(string memory _name) isOwner() public {
         ownerName = _name;
@@ -70,6 +76,11 @@ contract MyInherited is MyModifiers {
 
     function getOwnerName() public view returns(string memory) {
         return ownerName;
+    }
+
+    function callGetName() public pure returns(string memory) {
+        // return getName();
+        return super.getName(); // Both Same Working
     }
 
 }
