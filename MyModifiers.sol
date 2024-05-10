@@ -70,7 +70,9 @@ contract MyInherited is MyModifiers {
 
     string private ownerName = "Ahmed";
 
-    constructor(uint256 _diffNum) MyModifiers(_diffNum) {}
+    constructor(uint256 _diffNum) MyModifiers(_diffNum) {
+       priceOfCoin = 2 ether;
+    }
 
     // In Parent Contract Constructor Pass In Parameters So Inherited Contract Must Be Constructor Pass In Parameters
 
@@ -86,6 +88,8 @@ contract MyInherited is MyModifiers {
         // return getName();
         return super.getName(); // Both Same Working
     }
+
+    // =============== OverRide =============== //
 
     function getNumber() public pure override returns(uint) {
         return 465;
