@@ -58,6 +58,10 @@ contract MyModifiers {
         return "Ahmed Saleem Shaikh";
     }
 
+    function getNumber() public pure virtual returns(uint) {
+        return 786;
+    }
+
 }
 
 contract MyInherited is MyModifiers {
@@ -81,6 +85,18 @@ contract MyInherited is MyModifiers {
     function callGetName() public pure returns(string memory) {
         // return getName();
         return super.getName(); // Both Same Working
+    }
+
+    function getNumber() public pure override returns(uint) {
+        return 465;
+    }
+
+    function callGetNum() public pure returns(uint) {
+        return super.getNumber();
+    }
+
+    function callOriginalGetNum() public pure returns(uint) {
+        return getNumber();
     }
 
 }
