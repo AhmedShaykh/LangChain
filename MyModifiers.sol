@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
+import "./MyImport.sol";
+
 contract MyModifiers {
 
     address private owner;
@@ -58,23 +60,27 @@ contract MyModifiers {
         return "Ahmed Saleem Shaikh";
     }
 
-    function getNumber() public pure virtual returns(uint) {
+    function getNumber() public pure virtual returns(uint) { // Virtual & OverRide
         return 786;
     }
 
+    // In Inherited Contract OverRiding A Function Use Keyword Virtual In Parent Function
+
 }
 
-contract MyInherited is MyModifiers {
+contract MyInherited is MyModifiers, MyImport {
 
     // =============== Inheritance =============== //
 
     string private ownerName = "Ahmed";
 
     constructor(uint256 _diffNum) MyModifiers(_diffNum) {
-       priceOfCoin = 2 ether;
-    }
+        // In Parent Contract Constructor Pass In Parameters So Inherited Contract Must Be Constructor Again Pass In Parameters
 
-    // In Parent Contract Constructor Pass In Parameters So Inherited Contract Must Be Constructor Pass In Parameters
+        priceOfCoin = 2 ether; // In Inherited Contract Variable OverRide Only In Constructor
+
+        // In Variable OverRiding Target (Parent & Child) Both Value OverRide
+    }
 
     function setOwnerName(string memory _name) isOwner() public {
         ownerName = _name;
@@ -86,21 +92,23 @@ contract MyInherited is MyModifiers {
 
     function callGetName() public pure returns(string memory) {
         // return getName();
-        return super.getName(); // Both Same Working
+        return super.getName();
     }
 
-    // =============== OverRide =============== //
+    // =============== Virtual & OverRide =============== //
 
     function getNumber() public pure override returns(uint) {
         return 465;
     }
 
+    // OverRide Keyword In Child Function
+
     function callGetNum() public pure returns(uint) {
-        return super.getNumber();
+        return getNumber(); // Return Contract Function
     }
 
     function callOriginalGetNum() public pure returns(uint) {
-        return getNumber();
+        return super.getNumber(); // Return Parent Contract Function
     }
 
 }
