@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import "./MyImport.sol";
+import "./MyImport.sol"; // Import Contract
 
 contract MyModifiers {
 
@@ -69,17 +69,21 @@ contract MyModifiers {
 }
 
 contract MyInherited is MyModifiers, MyImport {
+ 
+    // In Contract Inherited Multi Contracts With Include Import Contracts
 
     // =============== Inheritance =============== //
 
     string private ownerName = "Ahmed";
 
     constructor(uint256 _diffNum) MyModifiers(_diffNum) {
+
         // In Parent Contract Constructor Pass In Parameters So Inherited Contract Must Be Constructor Again Pass In Parameters
 
         priceOfCoin = 2 ether; // In Inherited Contract Variable OverRide Only In Constructor
 
         // In Variable OverRiding Target (Parent & Child) Both Value OverRide
+        
     }
 
     function setOwnerName(string memory _name) isOwner() public {
