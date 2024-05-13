@@ -5,18 +5,22 @@ contract MyContract {
 
     uint256 public myRollNum = 4;
 
-    function myBirthDay() public pure returns(uint256) {
-        return 27;
+    function myBirthYear() public pure returns(uint256) {
+        return 2000;
     }
 
 }
 
+// =============== Read Any Contract On BlockChain =============== //
+
 contract MyImport {
 
-    MyContract public exampleContract = MyContract(0x5FD6eB55D12E759a21C09eF703fe0CBa1DC9d88D);
+    MyContract public exampleContract = MyContract(0xd9145CCE52D386f254917e481eB44e9943F39138);
+
+    // Put Contract Address Now You Read Any Contract On BlockChain 
 
     function getContractData() public view returns(uint256, uint256) {
-        return (exampleContract.myRollNum(), exampleContract.myBirthDay());
+        return (exampleContract.myRollNum(), exampleContract.myBirthYear());
     }
 
 }
