@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import "./MyImport.sol"; // Import Contract
+import "./MyImpLibrary.sol"; // Import Contract
 
 contract MyModifiers {
 
@@ -52,11 +52,7 @@ contract MyModifiers {
         isDiscount = value;
     }
 
-    function myNumber() public view returns(uint256) { // Inheritance
-        return number;
-    }
-
-    function getName() public pure returns(string memory) {
+    function getName() public pure returns(string memory) { // Inheritance
         return "Ahmed Saleem Shaikh";
     }
 
@@ -68,7 +64,7 @@ contract MyModifiers {
 
 }
 
-contract MyInherited is MyModifiers, MyImport {
+contract MyInherited is MyModifiers, MyImportLibrary {
  
     // In Contract Inherited Multi Contracts With Include Import Contracts
 
