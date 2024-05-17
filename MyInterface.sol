@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
+// =============== Interface =============== //
+
 interface IInterface {
 
     function addNum(uint _num) external;
@@ -27,6 +29,16 @@ contract Counter {
 
 }
 
+// =============== Creating Contract From A Contract =============== //
+
+contract MyContract {
+
+    function callMyName() public pure returns(string memory) {
+        return "Ahmed Shaikh";
+    }
+
+}
+
 contract MyInterface is IInterface {
 
     uint private number;
@@ -45,6 +57,16 @@ contract MyInterface is IInterface {
 
     function getCount(address _counter) external view returns (uint256) {
         return ICounter(_counter).count();
+    }
+
+    MyContract public myNewContract; // Creating Contract From A Contract
+
+    function deployContract() public {
+        myNewContract = new MyContract();
+    }
+
+    function sayMyName() public view returns(string memory) {
+        return myNewContract.callMyName();
     }
 
 }
