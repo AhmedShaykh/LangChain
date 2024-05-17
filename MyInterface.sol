@@ -9,6 +9,24 @@ interface IInterface {
 
 }
 
+interface ICounter {
+
+    function count() external view returns (uint256);
+
+    function increment() external;
+
+}
+
+contract Counter {
+
+    uint256 public count;
+
+    function increment() external {
+        count += 1;
+    }
+
+}
+
 contract MyInterface is IInterface {
 
     uint private number;
@@ -19,6 +37,14 @@ contract MyInterface is IInterface {
 
     function getNum() public view returns(uint) {
         return number;
+    }
+
+    function incrementCounter(address _counter) external {
+        ICounter(_counter).increment();
+    }
+
+    function getCount(address _counter) external view returns (uint256) {
+        return ICounter(_counter).count();
     }
 
 }
