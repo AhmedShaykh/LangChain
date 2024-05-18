@@ -3,17 +3,21 @@ pragma solidity ^0.8.24;
 
 // =============== Interface =============== //
 
+// Interface Is A Blueprint Of Contract & It Declared Functions Not Implemented
+
 interface IInterface {
 
-    function addNum(uint _num) external;
+    function addNum(uint _num) external; // Declared Functions Type Must Be External
 
     function getNum() external view returns(uint);
 
+    // Constructor & State Variables Not Declare In Interface
+
 }
 
-interface ICounter {
+interface ICounter { // Interface Inherited In Other Interface
 
-    function count() external view returns (uint256);
+    function count() external view returns (uint256); // State Variable Declared Is A Function
 
     function increment() external;
 
@@ -21,7 +25,7 @@ interface ICounter {
 
 contract Counter {
 
-    uint256 public count;
+    uint256 public count; // State Variable
 
     function increment() external {
         count += 1;
@@ -54,6 +58,8 @@ contract MyInterface is IInterface {
     function incrementCounter(address _counter) external {
         ICounter(_counter).increment();
     }
+
+    // Put Contract Address Which In Interface Implemented
 
     function getCount(address _counter) external view returns (uint256) {
         return ICounter(_counter).count();
