@@ -28,17 +28,9 @@ contract MyEvents {
 
     event depositMessage(string _message);
 
-    // event withdrawMessage(string _message);
-
     function deposit() external payable {
         emit depositMessage("Deposit Successful");
     }
-
-    // function withdraw(uint _amount) external payable {
-    //     _amount = _amount * 1 ether;
-    //     payable(msg.sender).transfer(_amount);
-    //     emit withdrawMessage("Withdraw Successful");
-    // }
 
     // =============== Ternary Operator =============== //
 
