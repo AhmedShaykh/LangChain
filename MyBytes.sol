@@ -38,3 +38,29 @@ contract MyBytes {
     }
 
 }
+
+// =============== Cryptographic Hashing Functions =============== //
+
+contract HashFunction {
+
+    function generatePass(string memory _pass) public pure returns(bytes32) {
+        return sha256(abi.encodePacked(_pass));
+    }
+
+    bytes32 public password;
+
+    function savePass(string memory _pass) public {
+        password = keccak256(abi.encodePacked(_pass));
+    }
+
+    function sendMoney(string memory _pass) public view {
+        require(keccak256(abi.encodePacked(_pass)) == password, 
+            "Wrong Password"
+        );
+    }
+
+    function getPass(string memory _pass, string memory _name) public pure returns(bytes32) {
+        return keccak256(abi.encode(_pass, _name));
+    }
+
+}
