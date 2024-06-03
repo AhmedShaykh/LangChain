@@ -1,18 +1,18 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.24;
+pragma solidity >=0.8.0 <=0.8.25;
 
-contract MyFunctions {
+contract Functions {
 
     // =============== Function State Mutability =============== //
 
-    function myFunc() public pure returns (uint16) {
-        return 786; // State Variable Is Not Access & Modification In Pure Function
+    function myFunc() public pure returns(uint16) {
+        return 786; // Value Only Create With In Function Is Pure Function
     }
 
-    uint16 val = 456; // State Variable
+    uint16 val = 456;
 
     function myFunc2() public view returns (uint16) {
-        return val; // State Variable Is Only GET (Read) In View Function
+        return val; // Value Is Only GET (Read) In View Function
     }
 
     function myFunc3() public pure returns (uint8) {
@@ -30,7 +30,7 @@ contract MyFunctions {
     // =============== Function Visibility =============== //
 
     function myFuncPublic(uint256 value, uint256 value2) public pure returns (uint256) { // Public Function Call Externally
-        return value + value2; // Public Function Call Externally, With In Contract Every Function & Inherited Contract Function With Externally
+        return value + value2; // Call With In Contract Every Function & Inherited Contract Function & Externally
     }
 
     function myFuncInternal(uint256 value, uint256 value2) internal pure returns (uint256) { // Internal
@@ -51,13 +51,13 @@ contract MyFunctions {
         return myFuncPrivate(23, 75);
     }
 
-    function myFuncExternal(uint256 value, uint256 value2) external pure returns (uint256) { // External Function Only Call Externally (Direct Own Function Access)
-        return value + value2; // Not With In Any Contract Function & Inherited Contract Function
+    function myFuncExternal(uint256 value, uint256 value2) external pure returns (uint256) { // Function Only Call Externally (Direct Own Function Access)
+        return value + value2; // Not With In Contract Any Function & Not Inherited Contract Function Access But Direct Access Inherited Contract Like Public
     }
 
 }
 
-contract FunctionVisible is MyFunctions { // Inherited
+contract FunctionVisible is Functions { // Inherited
 
     function callFuncPublic() public pure returns (uint256) {
         return myFuncPublic(45, 55);
@@ -69,20 +69,20 @@ contract FunctionVisible is MyFunctions { // Inherited
 
     // =============== Function Data Location =============== //
 
-    string[] public student = ["Ahmed", "Usman", "Bilal"]; // String & Array Are Default Stored In Storage
+    string[] public student = ["Ahmed", "Usman", "Yaseen"]; // String & Array Are Default Stored In Storage
 
     function memo() public view {
-        string[] memory s1 = student; // Memory Value Save In Create New Copy Value & Only Access With In Function
+        string[] memory s1 = student; // Memory Create New Copy Of Value & Value Save Only In Function
         s1[1] = "Abdullah"; // String Memory Method Use In Local Variables
     }
 
     function store() public {
         string[] storage s1 = student; // Storage Value Save In Direct State Value & It Access Directly
-        s1[1] = "Yaseen"; // String Storage Method Use In State Variables
+        s1[1] = "Majid"; // String Storage Method Use In State Variables
     }
 
     function getName(string memory _name) public pure returns(string memory) {
-        _name = "Ahmed Shaikh"; // If Argument Change Value Use Memory Method
+        _name = "Ahmed Shaikh"; // If Argument Value Is Change Use Memory Method
         return _name;
     }
 
@@ -90,9 +90,9 @@ contract FunctionVisible is MyFunctions { // Inherited
         return _data; // In CallData Initial Value Is Not Change
     }
 
-    function getResponse(string calldata _data) public pure returns(string memory) {
-        string memory NewData = _data; // CallData Stored Variable Only Use In Function Logic
-        return NewData; // But Can't Change It
+    function getResponse(string calldata _data) public pure returns(string calldata) {
+        string calldata NewData = _data; // CallData Value Stored In Variable But Can't Change Value
+        return NewData;
     }
 
     // If Argument Use Only In Function & Do Not Change Value Its Use To CallData Method
