@@ -1,1 +1,1 @@
-# Learning Solidity Language!
+# Learning Solidity!
