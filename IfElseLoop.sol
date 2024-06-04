@@ -1,9 +1,9 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.24;
+pragma solidity >=0.8.0 <=0.8.25;
 
-contract MyIfElse {
+contract IfElse {
 
-    function checkValue(int256 val) public pure returns (string memory) {
+    function checkValue(int256 val) public pure returns(string memory) {
 
         string memory value;
 
@@ -21,11 +21,11 @@ contract MyIfElse {
 
 }
 
-contract MyLoops {
+contract Loops {
 
-    uint256[3] public arr;
+    uint[3] public arr;
 
-    uint256 public count;
+    uint public count;
 
     // =============== While Loop =============== //
 
