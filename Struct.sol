@@ -35,30 +35,30 @@ contract Struct {
         userAddress: 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4
     });
 
-    struct Book {
+    struct Books {
         string title;
         string author;
         bool completed;
     }
 
-    Book[] public books; // Array Object
+    Books[] public books; // Array In Object
 
     function add(string memory _title, string memory _author) public {
-        books.push(Book(_title, _author, false));
+        books.push(Books(_title, _author, false));
     }
 
-    function get(uint _index) public view returns (string memory title, string memory author, bool completed) {
-        Book memory book = books[_index];
+    function get(uint _index) public view returns(string memory title, string memory author, bool completed) {
+        Books memory book = books[_index];
         return (book.title, book.author, book.completed);
     }
 
     function complete(uint _index) public {
-        Book storage book = books[_index];
+        Books storage book = books[_index];
         book.completed = true;
     }
 
     function reject(uint _index) public {
-        Book storage book = books[_index];
+        Books storage book = books[_index];
         book.completed = false;
     }
 

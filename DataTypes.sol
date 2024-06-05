@@ -24,7 +24,7 @@ contract DataTypes {
     int8 myIntval2 = -128; // 2 ** 8 = 256/2 = 128 x -1 = -128 In -ve Value
     int8 myIntval3 = 127; // 2 ** 8 = 256/2 = 128 - 1 = 127 But +ve Value Should Less 1 Value
 
-    // =============== Check Maximum & Minimum Values =============== //
+    // =============== Check Maximum & Minimum Value Range =============== //
 
     int256 public val = type(int256).max;
     int256 public val2 = type(int256).min;

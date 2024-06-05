@@ -45,7 +45,7 @@ contract Loops {
         }
     }
 
-    // =============== While Loop =============== //
+    // =============== Do While Loop =============== //
 
     function doWhileLoop() public {
         do {
