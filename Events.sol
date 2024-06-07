@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.0 <=0.8.25;
 
-// import "./ImpLibrary.sol"; // Import Contract
+import "./ImpLibrary.sol"; // Import Contract
 
 contract Contract { // Creating Contract From A Contract
 
@@ -11,7 +11,7 @@ contract Contract { // Creating Contract From A Contract
 
 }
 
-contract Events {
+contract Events is ImportLibrary {
 
     // Events Save In Transactions Log In BlockChain & Indexed Filter Data In GET To Front-End
 
