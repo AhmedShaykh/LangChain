@@ -29,7 +29,7 @@ contract Payable {
 
 contract EthSendContract { // Transfer Ethers To Contract
 
-    constructor() payable {} // Constructor Require Ethers To Deploy
+    constructor() payable {} // Constructor Require Ethers To Contract Deploy
 
     function getBalanceOfContract() public view returns(uint) {
         return address(this).balance; // GET Contract Balance

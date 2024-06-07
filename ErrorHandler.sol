@@ -26,10 +26,11 @@ contract ErrorHandler {
 
     function sendOwnerShip(address _address) public {
         require(msg.sender == owner, "Invalid Owner");
+        ownerShip = _address;
         owner = _address;
     }
 
-    // Require Check Value Is Correct Implement To Next Logic Otherwise Value Is Revert
+    // Require Check If Value Is Correct Then Implement To Next Logic Otherwise Value Is Revert
 
 }
 
@@ -50,7 +51,8 @@ contract Enum {
     function lotteryOwner() public {
         if(u1 == user.allowed) {
             lottery = 0;
-        } else if(u1 != user.allowed) {
+        } 
+        else if(u1 != user.allowed) {
             lottery = 1000;
         }
     }

@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.0 <=0.8.25;
 
-struct Students { // Struct Create In Contract & Global (Use Multi Contracts) 
+struct Students { // Struct Create In Contract & OutSide Contract (Use Multi Contracts) 
     uint roll;
     string name;
 }

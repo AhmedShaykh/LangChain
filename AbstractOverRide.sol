@@ -39,8 +39,6 @@ contract MainContract is AbstractContract, Virtual {
         return num;
     }
 
-    // The Not Implement Function Implement In Inherit Contract
-
     // =============== Virtual & OverRide =============== //
 
     function getNumber() public pure override returns(uint) { // OverRide Keyword Use In Child Function
