@@ -21,7 +21,7 @@ abstract contract AbstractContract {
         num = _num;
     }
 
-    // Functions Implement & Not Implement (Both) In Abstract Contract
+    // Functions Are Implement & Not Implement (Both) In Abstract Contract
 
 }
 

@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.0 <=0.8.25;
 
-contract Import { // No Required PUT Export Keyword
+contract Import { // No Required Put Export Keyword
 
     uint256 public myRollNum = 4;
 
@@ -13,7 +13,7 @@ contract Import { // No Required PUT Export Keyword
 
 library Library { // Library & Contract Are Not Similar
 
-    // In Library Only Declare Functions Not State Variables
+    // In Library Only Create Functions Not State Variables
     
     function getFunc() public pure returns(uint) {
         return 100 * 5;
@@ -34,7 +34,7 @@ contract ImportLibrary {
     }
 
     function callLibFunc() public pure returns(uint) {
-        return Library.getFunc(); // GET Function In Library
+        return Library.getFunc(); // Get Function In Library
     }
 
     // Library Function Direct Call In Contract No Need Inherit

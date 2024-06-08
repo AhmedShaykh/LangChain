@@ -5,15 +5,15 @@ contract Arrays {
 
     // =============== Arrays =============== //
 
-    uint8[] public myArrayVal = [255, 255];
+    uint8[] public myArrayVal = [255, 255]; // Array Default Stored In Storage
 
     string[] public myArrayVal2 = ["Ahmed", "Shaikh"];
 
-    string[3] myArrayVal3 = ["Ahmed", "Saleem", "Shaikh"]; // Give Array Size Fix
+    string[3] myArrayVal3 = ["Ahmed", "Saleem", "Shaikh"]; // Fix Array Size
 
     string[4] public MyArray = myArrayVal3;
 
-    int8[] public MyArray2 = [-128, 127, -72]; // Integer Array Compulsory 1 Value Should Be -ve & From The Start
+    int8[] public MyArray2 = [-128, 127, -72]; // Integer Array Compulsory Start Value Should Be -ve
 
     uint public lengthOfArrays = myArrayVal3.length;
 
@@ -30,7 +30,7 @@ contract Arrays {
     }
 
     function popElement() public {
-        arr.pop();
+        arr.pop(); // Remove Last Value Like JavaScript
     }
 
 }

@@ -3,7 +3,7 @@ pragma solidity >=0.8.0 <=0.8.25;
 
 contract Mapping {
 
-    mapping(address => string) public userAddress; // Mapping Is Default Stored In Storage
+    mapping(address => string) public userAddress; // Mapping Default Stored In Storage
 
     function addUser(address _yourAddress, string memory _yourName) public {
         userAddress[_yourAddress] = _yourName;
@@ -22,7 +22,7 @@ contract Mapping {
         data[_roll] = Student(_class, _name);
     }
 
-    // Key Support Address, UInt, Int, String & Bytes In Mapping
+    // Address, UInt, Int, String & Bytes Types Key Give In Mapping
     
 }
 
@@ -43,7 +43,7 @@ contract GlobalVariables {
         userDetails[msg.sender] = User(
             _name, 
             _number
-        ); // No Need Address Required In Parameter
+        ); // No Need Address Put In Parameter
     }
 
     function getYourDetails() public view returns(User memory) {

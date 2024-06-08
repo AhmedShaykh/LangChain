@@ -12,11 +12,11 @@ contract Payable {
     uint valueEther = 1 ether; // 1
 
     function getBalance(address _address) public view returns(uint256) {
-        return _address.balance; // Get Given Every Wallet Balance
+        return _address.balance; // Get Every Account Balance
     }
 
     function getOwnBalance() public view returns(uint256) {
-        return msg.sender.balance; // Get Owner Wallet Balance
+        return msg.sender.balance; // Get Owner Account Balance
     }
 
     function transferMoney(address payable _toAddress) payable public {
@@ -32,11 +32,11 @@ contract EthSendContract { // Transfer Ethers To Contract
     constructor() payable {} // Constructor Require Ethers To Contract Deploy
 
     function getBalanceOfContract() public view returns(uint) {
-        return address(this).balance; // GET Contract Balance
+        return address(this).balance; // Get Contract Balance
     }
 
     function getContractAddress() public view returns(address) {
-        return address(this); // GET Contract Address
+        return address(this); // Get Contract Address
     }
 
 }

@@ -13,11 +13,11 @@ contract Contract { // Creating Contract From A Contract
 
 contract Events is ImportLibrary {
 
-    // Events Save In Transactions Log In BlockChain & Indexed Filter Data In GET To Front-End
+    // Events Save In Transactions Log In BlockChain & Indexed Filter Data In Get To Front-End
 
     event MessageUpdated(address indexed _user, string _message); // Is Cheap Of Storage
 
-    // Events Is Only GET In Front-End (Not Direct GET On Contract Like Variables)
+    // Events Is Only Get In Front-End (Not Direct Get On Contract Like Variables)
 
     function updatedMessage(string memory _message) public {
         emit MessageUpdated(msg.sender, _message);

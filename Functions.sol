@@ -6,13 +6,13 @@ contract Functions {
     // =============== Function State Mutability =============== //
 
     function myFunc() public pure returns(uint16) {
-        return 786; // Value Only Create With In Function Is Pure Function
+        return 786; // Declare No State Variable Value
     }
 
     uint16 val = 456;
 
     function myFunc2() public view returns(uint16) {
-        return val; // Value Is GET (Read) Outside The Function Is View Function
+        return val; // State Variable Value Change & Get (Read)
     }
 
     function myFunc3() public pure returns(uint8) {
@@ -30,7 +30,7 @@ contract Functions {
     // =============== Function Visibility =============== //
 
     function myFuncPublic(uint256 value, uint256 value2) public pure returns(uint256) { // Public Function Call Externally
-        return value + value2; // Call With In Contract Every Function & Inherited Contract Function & Externally
+        return value + value2; // Call With In Contract Every Function & Inherit Contract Function
     }
 
     function myFuncInternal(uint256 value, uint256 value2) internal pure returns(uint256) { // Internal
@@ -38,7 +38,7 @@ contract Functions {
     }
 
     function myFuncInt() public pure returns(uint256) {
-        // Internal Function Call With In Contract Function & Inherited Contract Function
+        // Internal Function Call With In Contract Function & Inherit Contract Function
         return myFuncInternal(10, 12);
     }
 
@@ -52,12 +52,12 @@ contract Functions {
     }
 
     function myFuncExternal(uint256 value, uint256 value2) external pure returns(uint256) { // Function Only Call Externally (Direct Own Function Access)
-        return value + value2; // Not With In Contract Any Function & Not Inherited Contract Function Access But Direct Access Inherited Contract Like Public
+        return value + value2; // Not With In Contract Any Function & Not Inherit Contract Function Access But Direct Access Inherited Contract Like Public
     }
 
 }
 
-contract FunctionVisible is Functions { // Inherited
+contract FunctionVisible is Functions { // Inherit
 
     function callFuncPublic() public pure returns(uint256) {
         return myFuncPublic(45, 55);
@@ -69,7 +69,7 @@ contract FunctionVisible is Functions { // Inherited
 
     // =============== Function Data Location =============== //
 
-    string[] public student = ["Ahmed", "Usman", "Yaseen"]; // String & Array Are Default Stored In Storage
+    string[] public student = ["Ahmed", "Usman", "Yaseen"]; // String Default Stored In Storage (BlockChain)
 
     function memo() public view {
         string[] memory s1 = student; // Memory Create New Copy Of Value & Value Save Only In Function

@@ -23,7 +23,7 @@ contract Struct {
         student = newStudent;
     }
 
-    struct Obj { // Struct Is Default Stored In Storage
+    struct Obj { // Struct Default Stored In Storage
         string name;
         uint phoneNumber;
         address userAddress;
@@ -41,7 +41,7 @@ contract Struct {
         bool completed;
     }
 
-    Books[] public books; // Array In Object
+    Books[] public books; // Struct In Array
 
     function add(string memory _title, string memory _author) public {
         books.push(Books(_title, _author, false));

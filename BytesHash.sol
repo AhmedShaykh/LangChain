@@ -7,11 +7,11 @@ contract Bytes {
 
     // 1 Bytes = 8 Bits & 1 Hexadecimal Digits = 4 Bits
 
+    bytes2 public bx; // 1 Bytes = 2 Hexadecimal Digits
+
     bytes3 public b3; // 3 Bytes Array
 
     bytes2 public b2; // 2 Bytes Array
-
-    bytes2 public bx;
 
     function setter() public { // ASCII Code (Character To Hexadecimal)
         b2 = "ab"; // a = 61 & b = 62 => 0x 61 21 (2 Bytes Array)
@@ -19,7 +19,7 @@ contract Bytes {
         bx = "c"; // c = 63 => 0x 63 00 (Value Padding Of Zeros)
     }
 
-    // Every Value Stored In Bytes Array Value Save In Hexadecimal Digits
+    // Every Value Stored In Bytes Array Value Convert In Hexadecimal Digits
 
     // =============== Dynamic Bytes Array =============== //
 

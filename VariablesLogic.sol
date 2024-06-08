@@ -5,7 +5,7 @@ contract Variables {
 
     // =============== State & Local Variables =============== //
 
-    uint public age; // State Variable Is Create In Contract & Its Value Is Permanent Stored
+    uint public age; // State Variable Is Create Outside Fucntion & Its Permanent Stored
     
     // Default State Value Not Update Like Others Languages
 
@@ -14,7 +14,7 @@ contract Variables {
     }
 
     function local() pure public returns(uint) {
-        uint num = 24; // Local Variable Is Only Create In Function & Its Value Is Stored In Stack
+        uint num = 24; // Local Variable Is Only Create In Function & Its Stored In Stack
         return num;
     }
 

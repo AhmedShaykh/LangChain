@@ -5,17 +5,17 @@ contract IfElse {
 
     function checkValue(int256 val) public pure returns(string memory) {
 
-        string memory value;
+        string memory message;
 
         if (val > 0) {
-            value = "Value Is Greater Than Zero";
+            message = "Value Is Greater Than Zero";
         } else if (val == 0) {
-            value = "Value Is Equal To Zero";
+            message = "Value Is Equal To Zero";
         } else {
-            value = "Value Is Less Than Zero";
+            message = "Value Is Less Than Zero";
         }
 
-        return value;
+        return message;
 
     }
 

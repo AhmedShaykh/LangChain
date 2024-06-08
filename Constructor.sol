@@ -7,8 +7,8 @@ contract Constructor {
 
     address constant myAdd = 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4; // Constant Value Never Update
 
-    function getConstant() public pure returns(address) {
-        return myAdd; // Constant Value Get In Function But Not Update
+    function getConstant() public pure returns(address) { // Pure 
+        return myAdd; // Its Not State Variable (No Update In Function)
     }
 
     // Constant Are Not Apply In Functions, Arrays, Mappings & Struct Types
@@ -20,7 +20,7 @@ contract Constructor {
     address immutable setOwner;
 
     constructor(address _ownerAddress) {
-        owner = msg.sender; // Immutable Value Only Update With In Constructor
+        owner = msg.sender; // Immutable Value Put In Constructor
         ownerShip = msg.sender;
         setOwner = _ownerAddress;
     }

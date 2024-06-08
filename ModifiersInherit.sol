@@ -60,11 +60,11 @@ contract Inherited is Modifiers {
 
     constructor(uint256 _diffNum) Modifiers(_diffNum) {
 
-        // In Parent Contract Constructor Pass In Parameters So Inherited Contract Must Be Constructor Again Pass In Parameters
+        // In Parent Contract Constructor Pass In Parameters So Inherit Contract Must Be Constructor Again Pass In Parameters
 
         priceOfCoin = 2 ether;
 
-        // In Inherited Contract Variable OverRide Only In Constructor
+        // In Inherit Contract Variable OverRide Only In Constructor
 
     }
 
@@ -80,6 +80,6 @@ contract Inherited is Modifiers {
         return super.getName();
     }
 
-    // Super Method GET Parent Contract Function
+    // Super Method Get Parent Contract Function
 
 }

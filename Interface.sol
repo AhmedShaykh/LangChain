@@ -44,10 +44,10 @@ contract Interface is IInterface {
     }
 
     function incrementCounter(address _counter) external {
-        ICounter(_counter).increment(); // Easy Way Call Outside Contract On BlockChain
+        ICounter(_counter).increment(); // Easy Way Call Any Contract On BlockChain
     }
 
-    // Put Contract Address Which Use In Interface Implement
+    // Put Contract Address With Use In Interface
 
     function getCount(address _counter) external view returns (uint256) {
         return ICounter(_counter).count();

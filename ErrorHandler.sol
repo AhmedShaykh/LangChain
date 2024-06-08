@@ -22,7 +22,7 @@ contract ErrorHandler {
         }
     }
 
-    // Gas Fee is Negligible In Revert (Function Is Not Work Or Logic Is Not Update)
+    // Gas Fee is Negligible In Revert (Function Is Not Work & Logic Is Not Update)
 
     function sendOwnerShip(address _address) public {
         require(msg.sender == owner, "Invalid Owner");
